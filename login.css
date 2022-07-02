@@ -3,17 +3,18 @@
     --color-marron:#DC7633;
     --color-marron-oscuro:#A04000;
     --color-amarillo:#F7DC6F;
-    --color-amarillo-hover:#e9cf66;
+    --color-amarillo-hover:#c0aa54;
     --color-blanco:#FDFEFE;
-    /* --color-gris-claro:#ECF0F1; */
     --color-gris-claro:#dcdede;
     --color-gris-claro-hover:#d4d4d4;
     --color-gris:#566573;
     --color-negro:#273746;
     --color-focus: #D6EAF8;
+    --correcto:#2ECC71;
+    --error:#E74C3C ;
     --font-family:'Raleway', sans-serif;
     --sombra:rgba(0, 0, 0, 0.5);
-    --transition:all .2s ease-in-out;
+    --transition:all .1s ease-in-out;
 }
 body{
     background-color: var(--color-amarillo);
@@ -63,7 +64,7 @@ input[type='text']:focus , input[type='password']:focus{
     background-color: var(--color-focus);
     outline: none;
 }
-input[type='submit']{
+button{
     background-color: var(--color-amarillo);
     border: none;
     border-radius: var(--border-radius);
@@ -72,6 +73,23 @@ input[type='submit']{
     padding: 1rem;
     transition: var(--transition);
 }
-form input[type='submit']:hover{
+button:hover{
     background-color: var(--color-amarillo-hover);
+}
+.error , .correcto{
+    font-weight: bold;
+    letter-spacing: .1rem;
+    margin-bottom: 25px;
+    opacity: 1;
+    transition: var(--transition);
+}
+.error{
+    color: var(--error);
+}
+.correcto{
+    color: var(--correcto);
+}
+.hidden{
+    opacity: 0;
+    transition: var(--transition);
 }
