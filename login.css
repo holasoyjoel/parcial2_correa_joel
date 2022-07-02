@@ -1,0 +1,77 @@
+:root{
+    --border-radius:2px;
+    --color-marron:#DC7633;
+    --color-marron-oscuro:#A04000;
+    --color-amarillo:#F7DC6F;
+    --color-amarillo-hover:#e9cf66;
+    --color-blanco:#FDFEFE;
+    /* --color-gris-claro:#ECF0F1; */
+    --color-gris-claro:#dcdede;
+    --color-gris-claro-hover:#d4d4d4;
+    --color-gris:#566573;
+    --color-negro:#273746;
+    --color-focus: #D6EAF8;
+    --font-family:'Raleway', sans-serif;
+    --sombra:rgba(0, 0, 0, 0.5);
+    --transition:all .2s ease-in-out;
+}
+body{
+    background-color: var(--color-amarillo);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+form{
+    background-color: var(--color-blanco);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 0px 10px var(--sombra);
+    box-sizing: border-box;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 45%;
+}
+label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: .2rem;
+}
+input{
+    box-sizing: border-box;
+    margin:1rem 0 2rem 0;
+    padding: .5rem;
+    width: 100%;
+}
+input[type='text'] , form input[type='password']{
+    background-color: var(--color-gris-claro);
+    border: none;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+}
+input[type='text']:hover , input[type='password']:hover{
+    background-color: var(--color-gris-claro-hover);
+}
+input[type='text']:focus , input[type='password']:focus{
+    background-color: var(--color-focus);
+    outline: none;
+}
+input[type='submit']{
+    background-color: var(--color-amarillo);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    padding: 1rem;
+    transition: var(--transition);
+}
+form input[type='submit']:hover{
+    background-color: var(--color-amarillo-hover);
+}
