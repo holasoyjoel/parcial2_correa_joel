@@ -15,7 +15,6 @@ else{
             console.log('Error en Fetch:' , error);
         }
     }   
-
     async function registrarDatosEnTabla(){
         try {
             const registros = await getFetch();
