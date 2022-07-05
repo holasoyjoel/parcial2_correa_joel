@@ -93,3 +93,6 @@ button:hover{
     opacity: 0;
     transition: var(--transition);
 }
+.mostrar{
+    opacity: 1;
+}

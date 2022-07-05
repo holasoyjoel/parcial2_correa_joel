@@ -1,0 +1,55 @@
+body{
+    flex-direction: column;
+}
+button{
+    background-color: var(--color-focus);
+    margin-bottom: 2rem;
+}
+button:hover{
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    cursor: pointer;
+}
+table{
+    border: 1px solid black;
+    border-spacing: 0px;
+    width: 95%;
+    height: 90%;
+}
+thead tr{
+    background-color: var(--color-gris);
+    height: 50px;
+}
+thead th{
+    border-right: 1px solid black;
+}
+tbody td{
+    border-top: 1px solid var(--color-amarillo-hover);
+}
+tbody tr:hover{
+    background-color: var(--color-amarillo-hover);
+    cursor: pointer;
+}
+td{
+    text-align: center;
+}
+.cartelLogout{
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.mensajeLogout{
+    background-color: white;
+    border-radius: 10px;
+    color: var(--correcto);
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 2rem;
+    pointer-events:fill;
+}

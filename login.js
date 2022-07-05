@@ -1,4 +1,4 @@
-if(localStorage.getItem('login'))
+if(localStorage.getItem('login') == 'true')
 {
     location.replace('dashboard.html')
 }
@@ -8,9 +8,9 @@ else{
     const cartelError = document.getElementById('cartelError');
     const btnSubmit = document.getElementById('btnSubmit');
     btnSubmit.addEventListener('click' ,async(e)=>{
-        e.preventDefault()
-        localStorage.setItem('login' , true)
-;        if(await peticionFetch()){      
+        e.preventDefault();
+        localStorage.setItem('login' , true);
+        if(await peticionFetch()){      
             cartelError.classList = "correcto";
             setTimeout(() => {
                 location.replace('dashboard.html')
