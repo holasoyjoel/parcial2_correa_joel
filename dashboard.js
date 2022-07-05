@@ -3,29 +3,42 @@ if(localStorage.getItem('login') == 'false'){
 }
 else{
     async function getFetch(){
-        const resp = await fetch("https://basic-server-one.vercel.app/users");
-        const {data} = await resp.json();
-        return data;
+        try {
+            const resp = await fetch("https://basic-server-one.vercel.app/users");
+            const data = await resp.json();
+            if(data.error != false){
+                throw new Error('Error en la peticion fetch');
+            }
+            const {data: registros} = data; 
+            return registros;
+        } catch (error) {
+            console.log('Error en Fetch:' , error);
+        }
     }   
+
     async function registrarDatosEnTabla(){
-        const registros = await getFetch();
-        const tablaBody = document.getElementsByTagName('tbody')[0];
-        registros.map((registro)=>{
-            const tablaRow = document.createElement('tr');
-            const tdId = document.createElement('td');
-            const tdNombre = document.createElement('td');
-            const tdUser = document.createElement('td');
-            const tdEmail = document.createElement('td');
-            tdId.innerHTML = registro.id;
-            tdNombre.innerHTML = registro.name;
-            tdUser.innerHTML = registro.username;
-            tdEmail.innerHTML = registro.email;
-            tablaRow.appendChild(tdId);
-            tablaRow.appendChild(tdNombre);
-            tablaRow.appendChild(tdUser);
-            tablaRow.appendChild(tdEmail);
-            tablaBody.appendChild(tablaRow)
-        })
+        try {
+            const registros = await getFetch();
+            const tablaBody = document.getElementsByTagName('tbody')[0];
+            registros.map((registro)=>{
+                const tablaRow = document.createElement('tr');
+                const tdId = document.createElement('td');
+                const tdNombre = document.createElement('td');
+                const tdUser = document.createElement('td');
+                const tdEmail = document.createElement('td');
+                tdId.innerHTML = registro.id;
+                tdNombre.innerHTML = registro.name;
+                tdUser.innerHTML = registro.username;
+                tdEmail.innerHTML = registro.email;
+                tablaRow.appendChild(tdId);
+                tablaRow.appendChild(tdNombre);
+                tablaRow.appendChild(tdUser);
+                tablaRow.appendChild(tdEmail);
+                tablaBody.appendChild(tablaRow)
+            })
+        } catch (error) {
+            console.log('Error Registrar en Tabla:', error);
+        }
     }
     function logout(){
         localStorage.setItem('login' , false);
@@ -40,3 +53,5 @@ else{
     btnLogout.addEventListener('click', logout)
     registrarDatosEnTabla();
 }
+
+
